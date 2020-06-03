@@ -1,6 +1,6 @@
 # Drone-Reinforcement-Learning
 <p>Reinforcement Learning applied on a Tello Drone to follow human face using keras-rl. For this project DJI Tello Edu drone was used.</p>
-<p>Deep Deterministic Policy Gradient (DDPG) is used to train the agent on a Simulator.</p>
+<p>Agent is trained on a Simulator using Deep Deterministic Policy Gradient (DDPG)</p>
 
 ## Getting Started
 Clone or download the project to your system
