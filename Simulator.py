@@ -67,18 +67,14 @@ class SimulatorEnv:
             curr_y = curr_y - 0.5 * difference
 
         cv2.waitKey(1)
-        ret, frame = self.cap.read()
-        frame = cv2.resize(frame, (self.width, self.height))
 
         if curr_x < 0 or curr_x + curr_w > self.width or curr_y < 0 or curr_y+curr_w > self.width or curr_w < 50:
             done = True
             reward = reward - 10.0
         else:
-            #print((curr_x, curr_y), (curr_x + curr_w, curr_y + curr_w))
-            cv2.rectangle(frame,(int(curr_x), int(curr_y)), (int(curr_x)+int(curr_w), int(curr_y)+int(curr_w)), (0, 255, 0), 3)
             self.state = (curr_x / self.width, curr_y / self.width, curr_w / self.width)
 
-        cv2.imshow('Frame', frame)
+        #cv2.imshow('Frame', frame)
 
         if not done:
             rem = self.width - (curr_x + curr_w)
@@ -108,6 +104,8 @@ class SimulatorEnv:
         cv2.waitKey(1)
         ret, frame = self.cap.read()
         frame = cv2.resize(frame, (self.width, self.height))
+        cv2.rectangle(frame, (int(self.state[0]*self.width), int(self.state[1]*self.width)), (int(self.state[0]*self.width) + int(self.state[2]*self.width), int(self.state[1]*self.width) + int(self.state[2]*self.width)),
+                      (0, 255, 0), 3)
         cv2.imshow('Frame', frame)
 
     def seed(self, seed=None):
@@ -116,14 +114,9 @@ class SimulatorEnv:
 
     def reset(self):
         data = np.random.randint(1, self.width-1, 3)
-        ret, frame = self.cap.read()
         while data[0] + data[2] > self.width-1 or data[1] + data[2] > self.width-1:
             data = np.random.randint(1, self.width-1, 3)
-        frame = cv2.resize(frame, (self.width, self.width))
-        cv2.rectangle(frame, (data[0], data[1]), (data[0] + data[2], data[1] + data[2]), (0, 255, 255), 3)
         self.state = (data[0] / self.width, data[1] / self.width, data[2] / self.width)
-        cv2.imshow('Frame', frame)
-        cv2.waitKey(1)
         return np.array(self.state)
 
     def close(self):
@@ -132,7 +125,7 @@ class SimulatorEnv:
 
 #s = SimulatorEnv()
 #for i in range(5):
-    #s.reset()
+#    s.reset()
     #s.move([0.5, 0, 0]) #right
-    #s.move([0, -0.5, 0]) #forward
+#    s.move([0, -0.5, 0]) #back
     #s.move([0, 0, 0.5]) #up

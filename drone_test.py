@@ -32,6 +32,6 @@ agent = DDPGAgent(nb_actions=nb_actions, actor=actor, critic=critic, critic_acti
 agent.compile(Adam(lr=.001, clipnorm=1.), metrics=['mae'])
 
 agent.load_weights('ddpg_{}_weights.h5f'.format('drone'))
-print(env)
-agent.test(env, nb_episodes=100000, visualize=True, nb_max_episode_steps=10000)
+agent.test(env, nb_episodes=100000, visualize=True)
+#agent.test(env, nb_episodes=20, visualize=True, nb_max_episode_steps=50)
 env.close()
