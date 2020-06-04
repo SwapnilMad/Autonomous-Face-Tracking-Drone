@@ -2,6 +2,12 @@
 <p>Reinforcement Learning applied on a Tello Drone to follow human faces using keras-rl. For this project DJI Tello Edu drone was used.</p>
 <p>Agent is trained on a continuous state simulator to adjust velocity depending upon the position of the target using Deep Deterministic Policy Gradient (DDPG)</p>
 
+ <video width="320" height="240" controls>
+  <source src="resource/Drone.mp4" type="video/mp4">
+  <source src="resource/Drone.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video> 
+
 ## Getting Started
 Clone or download the project to your system
 
