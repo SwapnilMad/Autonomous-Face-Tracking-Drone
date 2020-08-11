@@ -7,7 +7,7 @@ from rl.memory import SequentialMemory
 from drone import Drone
 
 # Get the environment and extract the number of actions.
-env = Drone()
+env = SimulatorEnv()
 np.random.seed(123)
 env.seed(123)
 assert len(env.action_space.shape) == 1
