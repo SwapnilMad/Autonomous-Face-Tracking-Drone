@@ -62,7 +62,7 @@ soupsieve==2.0.1
 SpeechRecognition==3.8.1
 tb-nightly==1.14.0a20190603
 tensorboard==2.1.1
-tensorflow==2.1.0
+tensorflow==2.5.3
 tensorflow-estimator==2.1.0
 termcolor==1.1.0
 tf-estimator-nightly==1.14.0.dev2019060501
