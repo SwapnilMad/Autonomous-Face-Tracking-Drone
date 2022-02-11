@@ -37,7 +37,7 @@ pandas==1.0.3
 Pillow==7.1.2
 pipwin==0.5.0
 pocketsphinx==0.1.15
-protobuf==3.12.1
+protobuf==3.15.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 PyAudio==0.2.11
